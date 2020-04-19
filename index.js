@@ -10,8 +10,8 @@ app.set('view engine', 'ejs');
 /* Configure MySQL DBMS */
 const connection = mysql.createConnection({
     host: 'localhost',
-    user: 'root',
-    password: '',
+    user: 'adrien',
+    password: 'adrien',
     database: 'quotes_db'
 });
 connection.connect();
@@ -23,6 +23,7 @@ app.get('/', function(req, res){
 
 /* The handler for the /author route */
 app.get('/author', function(req, res){
+    
     var stmt = 'select * from l9_author where firstName=\'' 
                 + req.query.firstname + '\' and lastName=\'' 
                 + req.query.lastname + '\';'
@@ -60,4 +61,4 @@ app.get('*', function(req, res){
 /* Start the application server */
 app.listen(process.env.PORT || 3000, function(){
     console.log('Server has been started');
-})
+});
