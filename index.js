@@ -24,6 +24,11 @@ app.get('/', function(req, res){
 /* The handler for the /author route */
 app.get('/author', function(req, res){
     
+    var gender = req.query.gender;
+    var keyword = req.query.keyword;
+    var name = req.query.name;
+    
+    
     var stmt = 'select * from l9_author where firstName=\'' 
                 + req.query.firstname + '\' and lastName=\'' 
                 + req.query.lastname + '\';'
